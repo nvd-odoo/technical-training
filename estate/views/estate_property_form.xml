@@ -1,0 +1,59 @@
+<odoo>
+    <record id="estate_property_form" model="ir.ui.view">
+        <field name="name">real.estate.view.form</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+            <form string="Real Estate">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="property_sold" type="object" string="Sold"/>
+                    <button name="property_cancel" type="object" string="Cancel"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" placeholder="e.g. Villa"/>
+                    </h1>
+                    <field name="estate_tags_ids" widget="many2many_tags"/>
+                    <group>
+                        <group>
+                            <field name="postcode" string="Postcode"/>
+                            <field name="date_availability" string="Available from"/>
+                            <field name="estate_type_id"/>
+                        </group>
+                        <group>
+                            <field name="expected_price" string="Expected Price"/>
+                            <field name="selling_price" string="Selling price"/>   
+                            <field name="best_price" string="Best Price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="characteristics_page" string="Characteristics">
+                            <group>
+                                <field name="bedrooms" string="Bedrooms"/>
+                                <field name="living_area" string="Living Area"/>
+                                <field name="facades" string="Facades"/>
+                                <field name="garage" string="Garage"/>
+                                <field name="garden" string="Garden"/>
+                                <field name="garden_area" string="Garden Areae"/>
+                                <field name="garden_orientation" string="Garden Orientation"/>
+                                <field name="total_area" string="Total Area"/>
+                            </group>
+                        </page>
+                        <page name="offers" string="Offers">
+                             <field name="offer_ids"/>  
+                        </page>
+                        <page name="other_info" string="Other Info">
+                            <group>
+                                <field name="buyer_id"/>
+                                <field name="salesperson_id"/>
+                            </group>    
+                        </page>
+                        <page name="description_page" string="Description">
+                            <field name="description" type="html" placeholder="Add details about this real estate..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

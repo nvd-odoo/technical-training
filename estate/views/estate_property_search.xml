@@ -1,0 +1,25 @@
+<odoo>
+    <record id="estate_property_search" model="ir.ui.view">
+        <field name="name">real.estate.view.search</field>
+        <field name="model">real.estate</field>
+        <field name="arch" type="xml">
+            <search string="Real Estate">
+                <separator/>
+                <filter name="new" string="New" domain="[('state', '=', 'new')]" />
+                <filter name="received" string="Offer received" domain="[('state', '=', 'received')]" />
+                <separator/>
+                <filter name="available" string="Available" domain="[('date_availability', '&lt;', context_today().strftime('%Y-%m-%d'))]" />
+                <group expand="1">
+                    <filter name="postcode" string="Postcode" domain="[]" context="{'group_by': 'postcode'}"  />
+                </group>
+                <separator/>
+                <field name="name" string="Title"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="facades"/> 
+            </search>
+        </field>
+    </record>
+</odoo>
